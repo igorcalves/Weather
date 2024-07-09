@@ -6,6 +6,18 @@ const params = '&appid=9d4491a7a424e69ea3741bb28cfa45b7&units=metric&lang=pt_br'
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
+
+    const value = input.value
+    if (value === '') {
+        alert('Write a city name')
+        return
+    }
+
+    if (value.lenght < 3) {
+        alert('Write a valid city name with at least 3 characters')
+        return
+    }
+
     const city = input.value
     fetch(url + city + params)
         .then(response => response.json())
